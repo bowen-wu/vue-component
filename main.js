@@ -16,7 +16,7 @@ Vue.component('popover',{
                 <svg class="icon" v-on:click.stop="wife">
                     <use xlink:href="#icon-wife"></use>
                 </svg>
-                <div class="wife" v-show="wifeDialog" v-bind:style="{top: top + 'px'}" v-on:click.stop="">
+                <div class="wife" v-show="wifeDialog" v-bind:style="{top: top + 'px'}" v-on:click.stop>
 
                     <header>
                         <div>无线网络</div>
@@ -64,7 +64,7 @@ Vue.component('popover',{
             </div>
         </div>
 
-        <div class="todo" v-show="todoStatus" v-on:click.stop="">
+        <div class="todo" v-show="todoStatus" v-on:click.stop>
             <header>
                 <div class="title">
                     Everything
@@ -208,7 +208,8 @@ Vue.component('popover',{
 
 Vue.component('tab-change',{
     template: `
-    <div class="dialog clearfix">
+    <div class="dialog clearfix"
+    v-on:click.stop>
         <nav>
             <ul>
                 <li class="clearfix" v-for="list in lists" 
@@ -298,7 +299,8 @@ Vue.component('tab-change',{
 
 Vue.component('slide',{
     template: `
-    <div class="slide">
+    <div class="slide"
+    v-on:click.stop>
         <div class="viewport">
             <ul>
                 <li v-for="list in lists" 

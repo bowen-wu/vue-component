@@ -28,6 +28,7 @@
                 @include flex();
                 @include widthHeight(114px, 40px);
                 background-color: #fff;
+                cursor: pointer;
             }
         } 
     }
