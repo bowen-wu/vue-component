@@ -8,8 +8,60 @@
     @include widthHeight(600px,350px);
     background-color: #fff;
     border-radius: 2px;
-    display: flex;
     >nav{
-        
+        width: 200px;
+        background-color: #E6E5E5;
+        float: left;
+        height: 100%;
+        border-radius: 2px;
+        >ul{  
+            height: 100%;
+            overflow: auto;
+            border-radius: 2px;
+            >li{
+                justify-content: flex-start;
+                padding: 12px;
+                line-height: 30px;
+                border-radius: 2px;
+                .icon{
+                    float: left;
+                    @include widthHeight(24px, 24px);
+                    margin: 3px 0;
+                }
+                main{
+                    float: left;
+                    width: 120px;
+                    font-size: 18px;
+                    margin-left: 8px;             
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                &.active{
+                    background-color: #C7C7C7;
+                }
+            }
+        }
+    }
+    .content{
+        float: left;
+        background-color: #F5F5F5;
+        width: 400px;
+        height: 100%;
+        border-radius: 2px;
+        >ul{
+            >li{
+                >header{
+                    font-size: 24px;
+                    line-height: 24px;
+                    color: #000000;
+                    padding: 20px 0 10px 20px;
+                    border-bottom: 1px solid #E7E7E7;
+                }
+                main{
+                    margin: 10px 0 0 20px;
+                }
+            }
+        }
     }
 }
