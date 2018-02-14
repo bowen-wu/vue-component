@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal; }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+* {
+  box-sizing: border-box; }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden; }
+
+.window {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: url(../img/bg1.jpg) center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
