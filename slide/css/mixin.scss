@@ -1,0 +1,16 @@
+@mixin pos($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin widthHeight($width, $height) {
+    width: $width;
+    height: $height;
+}

@@ -1,7 +1,26 @@
-*{ margin:0; padding:0; }
-li{list-style: none;}
-a{color: inherit; text-decoration:none;}
-h1,h2,h3,h4,h5,h6{font-weight: normal;}
-.clearfix::after{content:"";display:block;clear:both;}
+.slide > .viewport {
+  overflow: hidden;
+  width: 510px;
+  display: flex; }
+  .slide > .viewport > ul {
+    display: flex; }
+    .slide > .viewport > ul > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      height: 330px;
+      transition: all 0.5s; }
 
-
+.slide > .indexWrapper > ul {
+  display: flex;
+  width: 510px;
+  justify-content: space-between;
+  background-color: #fff; }
+  .slide > .indexWrapper > ul > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 114px;
+    height: 40px;
+    background-color: #fff; }
