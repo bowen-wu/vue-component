@@ -1,26 +1,30 @@
-.slide > .viewport {
-  overflow: hidden;
-  width: 510px;
-  display: flex; }
-  .slide > .viewport > ul {
+.slide {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .slide > .viewport {
+    overflow: hidden;
+    width: 510px;
     display: flex; }
-    .slide > .viewport > ul > li {
+    .slide > .viewport > ul {
+      display: flex; }
+      .slide > .viewport > ul > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        height: 330px;
+        transition: all 0.5s; }
+  .slide > .indexWrapper > ul {
+    display: flex;
+    width: 510px;
+    justify-content: space-between;
+    background-color: #fff; }
+    .slide > .indexWrapper > ul > li {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 30px;
-      height: 330px;
-      transition: all 0.5s; }
-
-.slide > .indexWrapper > ul {
-  display: flex;
-  width: 510px;
-  justify-content: space-between;
-  background-color: #fff; }
-  .slide > .indexWrapper > ul > li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 114px;
-    height: 40px;
-    background-color: #fff; }
+      width: 114px;
+      height: 40px;
+      background-color: #fff; }

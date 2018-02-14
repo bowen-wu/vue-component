@@ -2,7 +2,7 @@ Vue.component('slide',{
     template: `
     <div class="slide">
         <div class="viewport">
-            <ul class="wrapper">
+            <ul>
                 <li v-for="list in lists" 
                 v-text="list.index"
                 v-bind:style="{backgroundColor: list.bgc, width: widthJS + 'px', transform: translate }"></li>
@@ -13,7 +13,7 @@ Vue.component('slide',{
                 <li class="index" 
                 v-for="list in lists" 
                 v-text="list.index"
-                v-on:click="change(list)"
+                v-on:click.stop="change(list)"
                 v-bind:style="{backgroundColor: list.bgc}"></li>
             </ul>
         </div>

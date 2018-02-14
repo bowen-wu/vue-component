@@ -1,0 +1,228 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: rgba(59, 47, 32, 0.8);
+  border-radius: 6px;
+  padding: 4px 12px; }
+  .wrapper > .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 6px;
+    cursor: pointer; }
+  .wrapper > div {
+    position: relative; }
+    .wrapper > div > .icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 6px;
+      cursor: pointer;
+      fill: #fff; }
+    .wrapper > div .wife {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(160, 160, 160, 0.6);
+      color: #fff;
+      border-radius: 4px; }
+      .wrapper > div .wife header {
+        width: 310px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px; }
+        .wrapper > div .wife header > div.wifeStatus {
+          position: relative; }
+          .wrapper > div .wife header > div.wifeStatus > div.offWrapper {
+            cursor: pointer; }
+            .wrapper > div .wife header > div.wifeStatus > div.offWrapper > .icon {
+              fill: rgba(238, 234, 225, 0.4);
+              width: 40px;
+              height: 40px; }
+          .wrapper > div .wife header > div.wifeStatus > div.onWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; }
+            .wrapper > div .wife header > div.wifeStatus > div.onWrapper > .icon {
+              width: 20px;
+              height: 20px;
+              margin-right: 10px; }
+            .wrapper > div .wife header > div.wifeStatus > div.onWrapper > div > .icon {
+              fill: #2090FF;
+              width: 40px;
+              height: 40px; }
+          .wrapper > div .wife header > div.wifeStatus .circle {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px; }
+            .wrapper > div .wife header > div.wifeStatus .circle.off {
+              left: 0; }
+            .wrapper > div .wife header > div.wifeStatus .circle.on {
+              right: 0; }
+      .wrapper > div .wife > .wifeScroll-outer {
+        width: 100%;
+        overflow: hidden; }
+        .wrapper > div .wife > .wifeScroll-outer ul {
+          width: 100%; }
+          .wrapper > div .wife > .wifeScroll-outer ul > li {
+            padding: 1.5px 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer; }
+          .wrapper > div .wife > .wifeScroll-outer ul.wifeScroll {
+            height: 128px;
+            overflow: auto; }
+            .wrapper > div .wife > .wifeScroll-outer ul.wifeScroll::-webkit-scrollbar {
+              display: none; }
+      .wrapper > div .wife::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 12px solid transparent;
+        border-top-color: rgba(160, 160, 160, 0.6); }
+
+.todo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 4px; }
+  .todo header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 16px;
+    background-color: #EBEEF0;
+    color: #84848B;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; }
+    .todo header .icons .icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 12px; }
+  .todo footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    .todo footer > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      padding: 0 16px;
+      background-color: #EBEEF0;
+      color: #84848B;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px; }
+      .todo footer > div .left > .icon {
+        width: 28px;
+        height: 28px; }
+      .todo footer > div .set > .icon {
+        width: 28px;
+        height: 28px; }
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 350px;
+  background-color: #fff;
+  border-radius: 2px; }
+  .dialog > nav {
+    width: 200px;
+    background-color: #E6E5E5;
+    float: left;
+    height: 100%;
+    border-radius: 2px; }
+    .dialog > nav > ul {
+      height: 100%;
+      overflow: auto;
+      border-radius: 2px; }
+      .dialog > nav > ul > li {
+        justify-content: flex-start;
+        padding: 12px;
+        line-height: 30px;
+        border-radius: 2px;
+        cursor: pointer; }
+        .dialog > nav > ul > li .icon {
+          float: left;
+          width: 24px;
+          height: 24px;
+          margin: 3px 0; }
+        .dialog > nav > ul > li main {
+          float: left;
+          width: 120px;
+          font-size: 18px;
+          margin-left: 8px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden; }
+        .dialog > nav > ul > li.active {
+          background-color: #C7C7C7; }
+  .dialog .content {
+    float: left;
+    background-color: #F5F5F5;
+    width: 400px;
+    height: 100%;
+    border-radius: 2px; }
+    .dialog .content > ul > li > header {
+      font-size: 24px;
+      line-height: 24px;
+      color: #000000;
+      padding: 20px 0 10px 20px;
+      border-bottom: 1px solid #E7E7E7; }
+    .dialog .content > ul > li main {
+      margin: 10px 0 0 20px; }
+
+.slide {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .slide > .viewport {
+    overflow: hidden;
+    width: 510px;
+    display: flex; }
+    .slide > .viewport > ul {
+      display: flex; }
+      .slide > .viewport > ul > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        height: 330px;
+        transition: all 0.5s; }
+  .slide > .indexWrapper > ul {
+    display: flex;
+    width: 510px;
+    justify-content: space-between;
+    background-color: #fff; }
+    .slide > .indexWrapper > ul > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 114px;
+      height: 40px;
+      background-color: #fff;
+      cursor: pointer; }

@@ -5,7 +5,7 @@ Vue.component('tab-change',{
             <ul>
                 <li class="clearfix" v-for="list in lists" 
                 v-bind:class="{active: list.isShow}" 
-                v-on:click="active(list)">
+                v-on:click.stop="active(list)">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-user"></use>
                     </svg>

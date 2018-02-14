@@ -1,7 +1,14 @@
 Vue.component('popover',{
     template: `
     <div class="window-inner">
-        <div class="wrapper">
+        <div class=wrapper>
+            <svg class="icon" v-on:click.stop="slide">
+                <use xlink:href="#icon-slide"></use>
+            </svg>
+            <svg class="icon" v-on:click.stop="tabChange">
+                <use xlink:href="#icon-table"></use>
+            </svg>
+
             <svg class="icon" v-on:click.stop="todo">
                 <use xlink:href="#icon-todo1"></use>
             </svg>
@@ -94,11 +101,15 @@ Vue.component('popover',{
                 </div>
             </footer>
         </div>
+        <tab-change v-show="tabChangeStatus"></tab-change>
+        <slide v-show="slideStatus"></slide>
     </div>
     `,
     props: ['isReset'],
     data(){
         return{
+            slideStatus: false,
+            tabChangeStatus: false,
             todoStatus: false,
             wifeDialog: false,
             wifeStatus: false,
@@ -128,11 +139,18 @@ Vue.component('popover',{
         isReset() {
             this.todoStatus = false
             this.wifeDialog = false
+            this.tabChangeStatus = false
+            this.slideStatus = false
         },
     },
     computed: {
         dialogStatus() {
-            return this.todoStatus === this.wifeDialog ? false : true
+            // return this.todoStatus === this.wifeDialog ? false : true
+            if(this.slideStatus || this.tabChangeStatus || this.todoStatus || this.wifeDialog){
+                return true
+            }else{
+                return false
+            }
         }
     },
     methods: {
@@ -158,17 +176,167 @@ Vue.component('popover',{
         },
         todo: function() {
             this.wifeDialog = false
+            this.tabChangeStatus = false
+            this.slideStatus = false
             this.todoStatus = !this.todoStatus
             this.$emit("ready",this.dialogStatus)
         },
         wife() {
             this.todoStatus = false
+            this.tabChangeStatus = false
+            this.slideStatus = false
             this.wifeDialog = !this.wifeDialog 
             this.$emit("ready",this.dialogStatus)
         },
+        tabChange() {
+            this.todoStatus = false
+            this.wifeDialog = false
+            this.slideStatus = false
+            this.tabChangeStatus = !this.tabChangeStatus
+            this.$emit("ready",this.dialogStatus)
+        },
+        slide() {
+            this.todoStatus = false
+            this.wifeDialog = false
+            this.tabChangeStatus = false
+            this.slideStatus = !this.slideStatus
+            this.$emit("ready",this.dialogStatus)
+        }
     }
 
 })
+
+Vue.component('tab-change',{
+    template: `
+    <div class="dialog clearfix">
+        <nav>
+            <ul>
+                <li class="clearfix" v-for="list in lists" 
+                v-bind:class="{active: list.isShow}" 
+                v-on:click.stop="active(list)">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-user"></use>
+                    </svg>
+                    <main v-text='list.title'></main>
+                </li>
+            </ul>
+        </nav>
+        <div class="content">
+            <ul>
+                <li v-for="list in lists" v-if="list.isShow">
+                    <header v-text='list.title'></header>
+                    <main v-text='list.content'></main>
+                </li>
+            </ul>
+        </div>
+    </div>
+    `,
+    data(){
+        return{
+            lists:[
+                {
+                    title: 'title1',
+                    content: 'content1',
+                    isShow: true,
+                },
+                {
+                    title: 'title2',
+                    content: 'content2',
+                    isShow: false,
+                },
+                {
+                    title: 'title3：超出部分隐藏',
+                    content: 'content3',
+                    isShow: false,
+                },
+                {
+                    title: 'title4',
+                    content: 'content4',
+                    isShow: false,
+                },
+                {
+                    title: 'title5',
+                    content: 'content5',
+                    isShow: false,
+                },
+                {
+                    title: 'title6',
+                    content: 'content6',
+                    isShow: false,
+                },
+                {
+                    title: 'title7',
+                    content: 'content7',
+                    isShow: false,
+                },
+                {
+                    title: 'title8',
+                    content: 'content8',
+                    isShow: false,
+                },
+                {
+                    title: 'title9',
+                    content: 'content9',
+                    isShow: false,
+                },
+            ]
+        }
+    },
+    watch: {
+        
+    },
+    methods: {
+        active(active) {
+            this.lists.map((item) => {
+                item.isShow = false
+            })
+            active.isShow = true
+        }
+    }
+
+})
+
+Vue.component('slide',{
+    template: `
+    <div class="slide">
+        <div class="viewport">
+            <ul>
+                <li v-for="list in lists" 
+                v-text="list.index"
+                v-bind:style="{backgroundColor: list.bgc, width: widthJS + 'px', transform: translate }"></li>
+            </ul>
+        </div>
+        <div class="indexWrapper">
+            <ul>
+                <li class="index" 
+                v-for="list in lists" 
+                v-text="list.index"
+                v-on:click.stop="change(list)"
+                v-bind:style="{backgroundColor: list.bgc}"></li>
+            </ul>
+        </div>
+    </div>
+    `,
+    data(){
+        return{
+            lists: [
+                {index: 0, bgc:'#A0FF2D'},
+                {index: 1, bgc:'#E7404D'},
+                {index: 2, bgc:'#52FFBD'},
+                {index: 3, bgc:'#29BAFF'},
+            ],
+            widthJS: 510,
+            translate: '',
+        }
+    },
+    methods: {
+        change(list) {
+            this.translate = `translate(-${list.index * this.widthJS}px)`
+        }
+    }
+
+})
+
 new Vue({
     el: '#app',
     data: {
