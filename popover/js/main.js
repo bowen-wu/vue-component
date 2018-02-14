@@ -126,10 +126,13 @@ Vue.component('popover',{
     },
     watch: {
         isReset() {
-            if(this.isReset){
-                this.todoStatus = false
-                this.wifeDialog = false
-            }
+            this.todoStatus = false
+            this.wifeDialog = false
+        },
+    },
+    computed: {
+        dialogStatus() {
+            return this.todoStatus === this.wifeDialog ? false : true
         }
     },
     methods: {
@@ -154,20 +157,18 @@ Vue.component('popover',{
             wife.isConnect = true
         },
         todo: function() {
-            console.log(this)
             this.wifeDialog = false
             this.todoStatus = !this.todoStatus
-            // this.$emit('ready')
+            this.$emit("ready",this.dialogStatus)
         },
         wife() {
             this.todoStatus = false
-            this.wifeDialog = !this.wifeDialog
-            // this.$emit('ready')
+            this.wifeDialog = !this.wifeDialog 
+            this.$emit("ready",this.dialogStatus)
         },
     }
 
 })
-
 new Vue({
     el: '#app',
     data: {
@@ -176,17 +177,17 @@ new Vue({
     },
     template: `
     <div class="window" v-on:click="closeDialog">
-        <popover v-bind:is-reset="isPopoverReset" v-on:ready="readyClick"></popover>
+        <popover v-bind:is-reset="isPopoverReset" v-on:ready="xxx"></popover>
     </div>
     `,
     methods: {
-        readyClick(){
-            this.readyClick = !this.readyClick
+        xxx(){
+            if(arguments[0]){
+                this.readyClick = !this.readyClick
+            }
         },
         closeDialog(){
-            if(this.readyClick){
-                this.isPopoverReset = !this.isPopoverReset
-            }
+            this.isPopoverReset = !this.isPopoverReset
         }
     }
 })
