@@ -119,6 +119,15 @@ Vue.component('popover',{
                 }, {
                     name: 'name5',
                     isConnect: false,
+                }, {
+                    name: 'name6',
+                    isConnect: false,
+                }, {
+                    name: 'name7',
+                    isConnect: false,
+                }, {
+                    name: 'name8',
+                    isConnect: false,
                 }],
             top: -56,
             isWifeScroll: false,
